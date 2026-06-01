@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Lato:wght@300;400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-merriweather: 'Merriweather', serif;
+  --font-lato: 'Lato', sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --color-brand-blue: #1A6FCC;
+  --color-brand-blue-dk: #114F94;
+  --color-brand-yellow: #F5B800;
+  --color-brand-green: #25D366;
+  --color-brand-navy: #0A1128;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Premium tech wash bubbles oscillating and drifting keyframes */
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(110vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.45;
+  }
+  90% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateY(-20vh) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-oscillate {
+  0%, 100% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 25px;
+  }
+}
+
+.washing-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7) 0%, rgba(26, 111, 204, 0.15) 60%, rgba(245, 184, 0, 0.2) 100%);
+  box-shadow: inset -5px -5px 12px rgba(0, 0, 0, 0.05),
+              inset 3px 3px 6px rgba(255, 255, 255, 0.8),
+              0 4px 10px rgba(26, 111, 204, 0.05);
+  backdrop-filter: blur(1px);
+  pointer-events: none;
+  z-index: 1;
+  animation: bubble-rise 18s linear infinite, bubble-oscillate 4s ease-in-out infinite;
+}
+
+/* Base custom animations */
+@keyframes bubble-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.08);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Custom interactive animation classes */
+.animate-bubble-1 {
+  animation: bubble-float 15s ease-in-out infinite;
+}
+.animate-bubble-2 {
+  animation: bubble-float 18s ease-in-out infinite;
+}
+.animate-bubble-3 {
+  animation: bubble-float 12s ease-in-out infinite;
+}
+.animate-spin-seal {
+  animation: spin-slow 22s linear infinite;
+}
+.animate-float-card {
+  animation: float-slow 4s ease-in-out infinite;
+}
+.animate-pulse-whatsapp {
+  animation: pulse-ring 2.5s infinite;
+}
+
+/* Layout transition overlays */
+.transition-all-theme {
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s ease,
+              font-family 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+/* Custom custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

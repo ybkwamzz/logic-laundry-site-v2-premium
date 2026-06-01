@@ -1,0 +1,6 @@
+{
+  "name": "Logic Laundry Services",
+  "description": "Nairobi's most trusted premium laundry service. Clean, fast, and reliable.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
