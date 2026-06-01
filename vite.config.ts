@@ -5,6 +5,11 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // GitHub Pages serves project sites from a repository subdirectory.
+    // Relative asset URLs keep the built app working from both `/` and
+    // `/logic-laundry-site-v2-premium/` instead of requesting `/assets/...`
+    // from the account root, which causes a white screen on Pages.
+    base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
